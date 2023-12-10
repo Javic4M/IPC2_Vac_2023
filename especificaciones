@@ -1,0 +1,18 @@
+
+#Cada elemento en la lista debe ser único, irrepetible
+
+Lista General de Artistas
+
+Artista
+Nombre
+- Lista de albumes
+
+Album
+Nombre
+- Lista de canciones
+
+
+Lista de reproducción
+- Nombre (unico)
+- Lista de canciones
+
