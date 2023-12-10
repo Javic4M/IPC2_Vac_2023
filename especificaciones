@@ -16,3 +16,12 @@ Lista de reproducción
 - Nombre (unico)
 - Lista de canciones
 
+La biblioteca (arcivo XML) carga TODAS LAS CANCIONES sin especificar un album o una procedencia 
+De eso: 
+- Identificar cada album y guardarlo en la lista que corresponde
+- Identificar cada artista y guardarlo en la lista que corresponde
+
+Niveles: 
+1. Artista
+2. Album
+3. Cancion

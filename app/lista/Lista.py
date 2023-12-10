@@ -18,6 +18,7 @@ class Lista:
         if self._longitud == 0:
             self._inicio = Nodo(dato)
             self._ultimo = self._inicio
+            self._longitud += 1
         else:
             
             #Buscar si el elemento ya se encuentra o no en la lista
@@ -28,7 +29,8 @@ class Lista:
                 self._ultimo.guardarSiguiente(nuevo)
                 nuevo.guardarAnterior(self._ultimo)
                 self._ultimo = nuevo
-        self._longitud += 1
+                self._longitud += 1 
+        
            
            
     def buscarElemento(self, dato):
@@ -115,3 +117,6 @@ class Lista:
     
     def estaVacia(self):
         return self._longitud == 0
+    
+    def obtenerLongitud(self):
+        return self._longitud
