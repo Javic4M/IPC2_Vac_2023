@@ -34,4 +34,9 @@ while contador < lista_canciones.obtenerLongitud():
     cancion_actual = lista_canciones.encontrarPorIndiceInicioFinal(contador).obtenerDato()
     cancion_actual.imprimirCancion()
 
-
+print("\n\n\n\n\n\n\n\n")
+print("agregando listas de reproduccion\n")
+biblioteca.agregarListaReproduccion("Lista de reproduccion numero uno")
+biblioteca.agregarListaReproduccion("Lista de reproduccion numero dos")
+biblioteca.agregarListaReproduccion("Lista de reproduccion numero uno")
+biblioteca.agregarListaReproduccion("Lista de reproduccion numero tres")

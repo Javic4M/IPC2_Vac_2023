@@ -23,7 +23,7 @@ class ListaCircular:
             
             #Buscar si el elemento ya se encuentra o no en la lista
             if self.buscarElemento(dato): 
-                print("No se puede arear el elemento pues ya está contenido en la lista")
+                print("No se puede agrear el elemento pues ya está contenido en la lista")
             else: 
                 actual = self._ultimo
                 self._ultimo = Nodo(dato)
@@ -90,12 +90,17 @@ class ListaCircular:
         return actual
     
     def encontrarPorIndiceFinalInicio(self, indice): 
-        actual = self._ultimo
-        
-        for i in range(indice):
-            anterior = actual.obtenerAnterior()
-            actual = anterior
-        return actual
+        if self._longitud == 0:
+            return None
+        elif self._longitud == 1:
+            return self._inicio
+        else: 
+            contador = self._longitud
+            actual = self._ultimo
+            while contador > indice: #cambiar self.longitud por indice
+                contador -= 1
+                actual = actual.obtenerAnterior()   
+            return actual 
     
     def obtenerContenido(self, indice):
         
@@ -118,3 +123,5 @@ class ListaCircular:
     def estaVacia(self):
         return self._longitud == 0
     
+    def obtenerLongitud(self):
+        return self._longitud
