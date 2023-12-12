@@ -31,7 +31,7 @@ class Album:
                         self._lista_canciones.agregarALaLista(cancion)
                         print("Se ha agregado la cancion", nombre, "al album", self._nombre)
                 contador += 1
-                cancion_actual = cancion_actual = self._lista_canciones.encontrarPorIndiceInicioFinal(contador).obtenerDato()
+                cancion_actual = self._lista_canciones.encontrarPorIndiceInicioFinal(contador).obtenerDato()
     
     def obtenerListaCanciones(self):
         return self._lista_canciones

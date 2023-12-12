@@ -33,9 +33,21 @@ class Artista:
                 contador += 1
                 album_actual = self._lista_albumes.encontrarPorIndiceInicioFinal(contador).obtenerDato() 
     
-    
     def obtenerListaAlbumes(self): 
         return self._lista_albumes
     
     def obtenerNombre(self): 
         return self._nombre
+    
+    #Devuelve un album en base a su nombre
+    def obtenerAlbum(self, nombre):
+        longitud = self._lista_albumes.obtenerLongitud()
+        contador = 1
+        
+        while contador <= longitud: 
+            album_actual = self._lista_albumes.encontrarPorIndiceInicioFinal(contador).obtenerDato()
+            if album_actual.obtenerNombre() == nombre:
+                return album_actual
+            contador += 1
+            
+        return None

@@ -13,8 +13,14 @@ class Nodo:
     def guardarAnterior(self, nodoAnterior):
         self._nodoAnterior = nodoAnterior
     
-    def obtenerSiguiente(self, nodSiguiente):
+    #def obtenerSiguiente(self, nodSiguiente):
+    #    return self._nodoSiguiente
+    #
+    #def obtenerAnterior(self, nodoAnterior):
+    #    return self._nodoAnterior
+    
+    def obtenerSiguiente(self):
         return self._nodoSiguiente
     
-    def obtenerAnterior(self, nodoAnterior):
+    def obtenerAnterior(self):
         return self._nodoAnterior
