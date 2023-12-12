@@ -13,12 +13,20 @@ class ListaCircular:
         self._ultimo =  None 
         self._longitud = 0  
         
+        self._actual = self._inicio #Nodo para agilizar avanzar y retroceder en la lista -> Mantiene el estado de la lista
+        self._posicion_actual = 0   #Contador de posicion actual 
+    
     def agregarALaLista(self, dato):
 
         if self.estaVacia():
             self._inicio = Nodo(dato)
             self._ultimo = self._inicio
             self._longitud += 1
+            self._inicio.guardarSiguiente(self._inicio)
+            
+            self._posicion_actual = 1 #Contador de posicion actual
+            self._actual = self._inicio
+            
         else:
             
             #Buscar si el elemento ya se encuentra o no en la lista
@@ -125,3 +133,39 @@ class ListaCircular:
     
     def obtenerLongitud(self):
         return self._longitud
+    
+    
+    
+    #Codigo para agilizar la busqueda ascendete - descendente (mantiene el estado de la lista)
+    #Retorna el contenido de la posicion actual (Contenido, no nodo)
+    def obtenerContenidoActual(self):
+        
+        if self.estaVacia():
+            print("No hay elementos en la lista")
+        else: 
+            return self._actual.obtenerDato()
+    
+    
+    def avanzar(self):
+        if not self.estaVacia():
+            pivote = self._actual.obtenerSiguiente()
+            if pivote != None:
+                self._actual = pivote
+                self._posicion_actual +=1
+                if self._posicion_actual > self._longitud:
+                    #Regreso al inicio (giro por la derecha)
+                    self._posicion_actual = 1
+        
+        
+    def retroceder(self):
+        if not self.estaVacia():
+            pivote = self._actual.obtenerAnterior()
+            if pivote != None:
+                self._actual = pivote
+                self._posicion_actual -=1
+                if self._posicion_actual == 0:
+                    #Regreso al final (giro por la izquierda)
+                    self._posicion_actual = self._longitud    
+    
+    def obtenerIndicePosicionActual(self):
+        return self._posicion_actual
