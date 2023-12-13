@@ -7,6 +7,8 @@ from app.lista.Circular import ListaCircular
 
 from app.biblioteca.Cancion import Cancion
 
+from app.persistencia.Historial import Historial
+
 class Reproductor: 
     
     def __init__(self):
@@ -18,6 +20,9 @@ class Reproductor:
         self._pila = []
         
         self._cancion_actual = None
+        
+        self._historial = Historial()
+        
         pygame.mixer.init()
         
     #Obtiene como parametro una lista de canciones para reproducir    
@@ -37,6 +42,10 @@ class Reproductor:
         ruta = self._cancion_actual.obtenerRuta()
         pygame.mixer.music.load(ruta)
         pygame.mixer.music.play()
+        
+        nombre_cancion = self._cancion_actual.obtenerNombre()
+        self._historial.actualizarContador(nombre_cancion)
+        
         print("Reproduciendo: ", ruta, mensaje," \n")
     
     def obtenerCancionAleatoria(self):

@@ -5,10 +5,10 @@ from app.biblioteca.Cancion import Cancion
 
 from app.reproductor.Reproductor import Reproductor
 
-cancion1 = Cancion("Malices", "Osiah", "Kairos", "Imgggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji  Normal People ft rei brown.mp3")
-cancion2 = Cancion("Disillusion", "Osiah", "Kairos", "Imagggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji NITROUS.mp3")
-cancion3 = Cancion("Nina", "Mon", "1940 Carmen", "1940 Carmen.jpg", "C:/Users/Jorge/OneDrive/Escritorio/Joji Afterthought.mp3")
-cancion4 = Cancion("Zombie", "Mon", "1940 Carmen", "1940 Carmen.jpg", "C:/Users/Jorge/OneDrive/Escritorio/Joji 777.mp3")
+cancion1 = Cancion("Normal People", "Joji", "Nectar", "Imgggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji  Normal People ft rei brown.mp3")
+cancion2 = Cancion("NITRUS",        "Joji", "Nectar", "Imagggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji NITROUS.mp3")
+cancion3 = Cancion("Afterthought",  "Joji", "Nectar", "1940 Carmen.jpg", "C:/Users/Jorge/OneDrive/Escritorio/Joji Afterthought.mp3")
+cancion4 = Cancion("777",           "Joji", "Nectar", "1940 Carmen.jpg", "C:/Users/Jorge/OneDrive/Escritorio/Joji 777.mp3")
 
 #cancion5 = Cancion("Mew", "Mon", "Auto", "Auto.jpg", "Mew.mp3")
 #cancion6 = Cancion("Mew", "Mon", "Auto", "Auto.jpg", "Mew.mp3")
