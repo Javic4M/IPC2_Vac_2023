@@ -8,6 +8,7 @@ from app.lista.Circular import ListaCircular
 from app.biblioteca.Cancion import Cancion
 
 from app.persistencia.Historial import Historial
+from app.persistencia.ContadorReproducciones import ContadorCanciones 
 
 class Reproductor: 
     
@@ -22,6 +23,7 @@ class Reproductor:
         self._cancion_actual = None
         
         self._historial = Historial()
+        self._contador_canciones = ContadorCanciones()
         
         pygame.mixer.init()
         
@@ -45,6 +47,7 @@ class Reproductor:
         
         nombre_cancion = self._cancion_actual.obtenerNombre()
         self._historial.actualizarContador(nombre_cancion)
+        self._contador_canciones.actualizar_contador(self._cancion_actual)
         
         print("Reproduciendo: ", ruta, mensaje," \n")
     
