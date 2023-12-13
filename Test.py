@@ -3,14 +3,15 @@ from app.lista.Lista import Lista
 from app.biblioteca.Biblioteca import Biblioteca
 from app.biblioteca.Cancion import Cancion
 
-cancion1 = Cancion("Malice", "Osiah", "Kairos", "Imgggen", "Escritorio: Malice.mp3")
-cancion2 = Cancion("Disillusion", "Osiah", "Kairos", "Imagggen", "Escritorio: Disillusion.mp3")
+from app.reproductor.Reproductor import Reproductor
 
-cancion3 = Cancion("Nina", "Mon", "1940 Carmen", "1940 Carmen.jpg", "Escritorio: Nina.mp3")
-cancion4 = Cancion("Zombie", "Mon", "1940 Carmen", "1940 Carmen.jpg", "Escritorio: Zombie.mp3")
+cancion1 = Cancion("Malices", "Osiah", "Kairos", "Imgggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji  Normal People ft rei brown.mp3")
+cancion2 = Cancion("Disillusion", "Osiah", "Kairos", "Imagggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji NITROUS.mp3")
+cancion3 = Cancion("Nina", "Mon", "1940 Carmen", "1940 Carmen.jpg", "C:/Users/Jorge/OneDrive/Escritorio/Joji Afterthought.mp3")
+cancion4 = Cancion("Zombie", "Mon", "1940 Carmen", "1940 Carmen.jpg", "C:/Users/Jorge/OneDrive/Escritorio/Joji 777.mp3")
 
-cancion5 = Cancion("Mew", "Mon", "Auto", "Auto.jpg", "Mew.mp3")
-cancion6 = Cancion("Mew", "Mon", "Auto", "Auto.jpg", "Mew.mp3")
+#cancion5 = Cancion("Mew", "Mon", "Auto", "Auto.jpg", "Mew.mp3")
+#cancion6 = Cancion("Mew", "Mon", "Auto", "Auto.jpg", "Mew.mp3")
 
 
 biblioteca = Biblioteca()
@@ -19,8 +20,8 @@ biblioteca.agregarCancionPorObjeto(cancion1)
 biblioteca.agregarCancionPorObjeto(cancion2)
 biblioteca.agregarCancionPorObjeto(cancion3)
 biblioteca.agregarCancionPorObjeto(cancion4)
-biblioteca.agregarCancionPorObjeto(cancion5)
-biblioteca.agregarCancionPorObjeto(cancion6)
+#biblioteca.agregarCancionPorObjeto(cancion5)
+#biblioteca.agregarCancionPorObjeto(cancion6)
 
 
 print("\nBiblioteca de canciones agregada correctamente!\n")
@@ -40,3 +41,39 @@ biblioteca.agregarListaReproduccion("Lista de reproduccion numero uno")
 biblioteca.agregarListaReproduccion("Lista de reproduccion numero dos")
 biblioteca.agregarListaReproduccion("Lista de reproduccion numero uno")
 biblioteca.agregarListaReproduccion("Lista de reproduccion numero tres")
+
+
+reproductor = Reproductor()
+reproductor.establecerListaAReproducir(lista_canciones)
+reproductor.reproduccionAleatoria()
+
+reproductor.reproducir()
+
+opcion = None
+print("\n\n\n\n\n\n\n Reproductor\n")
+while opcion != "s":
+    print("s: salir")
+    print("p: pausar")
+    print("r: reanudar")
+    print("a: avanzar")
+    print("t: atras")
+    
+    print("i: aleatoio")
+    print("n: no aleatorio")
+    opcion = input()
+    
+    if opcion == "s": 
+        break
+    elif opcion == "p":
+        reproductor.pausar()
+    elif opcion == "r":
+        reproductor.reanudar()
+    elif opcion == "a":
+        reproductor.avanzar()
+    elif opcion == "t":
+        reproductor.retroceder()
+    
+    elif opcion == "i":
+        reproductor.reproduccionAleatoria()
+    elif opcion == "n":
+        reproductor.reproduccionNoAleatoria()
