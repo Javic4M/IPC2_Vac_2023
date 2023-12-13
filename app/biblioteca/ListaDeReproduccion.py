@@ -33,10 +33,14 @@ class ListaDeReproduccion:
                         print("Se ha agregado la cancion", nombre, "a la lista de reproduccion", self._nombre)
                 contador += 1
                 cancion_actual = self._lista_canciones.encontrarPorIndiceInicioFinal(contador).obtenerDato()
-
+                
+    
     def obtenerListaCanciones(self):
         return self._lista_canciones
     
     
     def obtenerNombre(self):
         return self._nombre
+    
+    def establecerListaCanciones(self, lista_circular_canciones):
+        self._lista_canciones = lista_circular_canciones

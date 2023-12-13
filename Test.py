@@ -5,6 +5,10 @@ from app.biblioteca.Cancion import Cancion
 
 from app.reproductor.Reproductor import Reproductor
 
+from app.persistencia.PersistirListas import PersistirListas
+
+from app.biblioteca.ListaDeReproduccion import ListaDeReproduccion
+
 cancion1 = Cancion("Normal People", "Joji", "Nectar", "Imgggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji  Normal People ft rei brown.mp3")
 cancion2 = Cancion("NITRUS",        "Joji", "Nectar", "Imagggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji NITROUS.mp3")
 cancion3 = Cancion("Afterthought",  "Joji", "Nectar", "1940 Carmen.jpg", "C:/Users/Jorge/OneDrive/Escritorio/Joji Afterthought.mp3")
@@ -77,3 +81,21 @@ while opcion != "s":
         reproductor.reproduccionAleatoria()
     elif opcion == "n":
         reproductor.reproduccionNoAleatoria()
+        
+        
+lista = Lista()
+c1 = Cancion("Cancion 1", "Artista 1", "Album 1", "imagen1.jpg", "ruta1.mp3")
+c2 = Cancion("Cancion 2", "Artista 2", "Album 2", "imagen2.jpg", "ruta2.mp3")
+c3 = Cancion("Cancion 3", "Artista 3", "Album 3", "imagen3.jpg", "ruta3.mp3")
+
+biblioteca.agregarListaReproduccion("Lista de reproduccion con canciones ficticias")
+biblioteca.agregarCancionAListaReproduccion(c1, "Lista de reproduccion con canciones ficticias")
+biblioteca.agregarCancionAListaReproduccion(c2, "Lista de reproduccion con canciones ficticias")
+biblioteca.agregarCancionAListaReproduccion(c3, "Lista de reproduccion con canciones ficticias")
+
+
+
+#persistir_listas = PersistirListas()
+#
+#persistir_listas.persistir("Lista de reproduccion 1", lista)
+#persistir_listas.persistir("Todas las canciones", lista_canciones)
