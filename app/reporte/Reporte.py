@@ -26,7 +26,7 @@ class Reporte:
     def obtener_pocentaje(self, cantidad):
         max = int(self.lista_canciones.obtenerPorIndice(1).reproducciones)
         resultado = (int(cantidad) * 100) / max
-        return round(resultado, 2)
+        return round(resultado, 0)
 
     def ordenar(self):
         list_tmp = Lista()
@@ -114,7 +114,7 @@ class Reporte:
         
                     .menu{
                         position: relative;
-                        border: 1px solid #f7d974;
+                        border: 1px solid #ffffff;
                         border-radius: 20px;
                     }
         
@@ -123,7 +123,7 @@ class Reporte:
                         width: 0;
                         height: 8px;
                         border-radius: 10px;
-                        background-color: #f7d974;
+                        background: linear-gradient(450deg,#00F260, #0575E6);
                     }\n
         """
         animationCSS = ""
@@ -131,16 +131,18 @@ class Reporte:
             if i == 9:
                 break
             else:
-                n1 = f"{self.lista_canciones.obtenerPorIndice(i+1).nombreCancion}-menu"
-                n2 = f"{self.lista_canciones.obtenerPorIndice(i+1).nombreCancion}-barra"
-                p1 = "#"+n1+"{animation: "+n2+ " 2s forwards;}"
-                p2 = f"@keyframes {n2}"+" }"
-                p3 = "{ 100% { width: "+str(self.obtener_pocentaje(self.lista_canciones.obtenerPorIndice(i+1).reproducciones))+"%"
-                p4 = ": } } \n</style> \n</head>\n"
+                nombre = self.lista_canciones.obtenerPorIndice(i+1).nombreCancion
+                
+                n1 = nombre.replace(" ", "") +"-menu"
+                n2 = nombre.replace(" ", "") +"-barra"
+                p1 = "\t#"+n1+"{animation: "+n2+ " 5s forwards;\n\t}"
+                p2 = f"\n\t\t@keyframes {n2}"+" {"
+                p3 = "\n\t100% { \n\twidth: "+str(self.obtener_pocentaje(self.lista_canciones.obtenerPorIndice(i+1).reproducciones))+"%;"
+                p4 = "\n\t}\n\t} \n"
                 pf = p1+p2+p3+p4
                 animationCSS+= pf
 
-        head = head_0+animationCSS
+        head = head_0+animationCSS+ "</style> \n</head>\n"
 
         body_0 = """
             <body>
@@ -154,7 +156,7 @@ class Reporte:
             if i == 9:
                 break
             else:
-                n1 = f"{self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion}-menu"
+                n1 = self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion.replace(" ", "")+"-menu"
                 p1 = f"""
                     <div class="canciones">
                         <div class="detalles">
@@ -199,9 +201,9 @@ class WebView:
         webbrowser.open_new_tab("report.html")
         print("vista iniciada")
 
-if __name__ == "__main__":
-    rep = Reporte("/home/giovanic/Documentos/IPC2_CAPI/Ejemplos/proy/IPC2_Vac_2023/contador.xml")
-    rep.lector()
-    rep.write_file()
-    fil = WebView()
-    fil.run()
+
+rep = Reporte("/home/giovanic/Documentos/IPC2_CAPI/Ejemplos/proy/IPC2_Vac_2023/contador.xml")
+rep.lector()
+rep.write_file()
+fil = WebView()
+fil.run()
