@@ -1,0 +1,12 @@
+digraph imagenGraphviz {
+	node [height=.5 width=.2]
+	1 [label="Lista de Reproducción"]
+	2 [label="Merry Chirstman | { Album:  Navidad | Artista:  Javier}" shape=record style=filled]
+	1 -> 2
+	3 [label="Navidad | { Album:  Navidad_2 | Artista:  Carlos}" shape=record style=filled]
+	2 -> 3
+	4 [label="Peces en el Rio | { Album:  Reflexion | Artista:  Luis}" shape=record style=filled]
+	3 -> 4
+	5 [label="Belen | { Album:  Reflexion | Artista:  Luis}" shape=record style=filled]
+	4 -> 5
+}
