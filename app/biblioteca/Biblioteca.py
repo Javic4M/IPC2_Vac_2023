@@ -7,11 +7,14 @@ from app.biblioteca.Cancion import Cancion
 from app.biblioteca.ColeccionArtistas import ColeccionArtistas
 from app.biblioteca.ListaDeReproduccion import ListaDeReproduccion
 
+from app.persistencia.PersistirListas import PersistirListas
+
 #Controla la totalidad de la biblioteca de música 
 class Biblioteca: 
     def __init__(self): 
         self._coleccion_artistas = ColeccionArtistas()
         self._coleccion_listas_reproduccion = Lista()
+        self._persistirListas = PersistirListas()
     
     #Retorna una lista doble enlazada con todos los artistas
     def obtenerListaArtistas(self):
@@ -136,7 +139,11 @@ class Biblioteca:
         lista = self.obtenerListaReproduccion(nombre_lista)
         if(lista != None):
             #Agregar la cancion
-            lista.agregarALaLista(cancion)
+            lista.agregarCancion(cancion)
+            
+            lista_canciones = lista.obtenerListaCanciones()
+            self._persistirListas.persistir(nombre_lista, lista_canciones)
+            
             print ("La cancion: ", cancion.obtenerNombre(), "ha sido agregada correctamente a la lista de reproduccion", nombre_lista, "!!!!!")
         
     #Implementar logica para: 

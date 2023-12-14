@@ -169,3 +169,7 @@ class ListaCircular:
     
     def obtenerIndicePosicionActual(self):
         return self._posicion_actual
+    
+    def obtenerPorIndice(self, indice):
+        nodo = self.encontrarPorIndiceInicioFinal(indice)
+        return nodo.obtenerDato()
