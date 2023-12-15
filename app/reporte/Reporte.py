@@ -1,3 +1,4 @@
+import os.path
 import webbrowser
 from app.lista.Lista import Lista
 from app.reporte.BubbleSort import BubbleSort
@@ -9,6 +10,12 @@ class Reporte:
         self.ruta = ruta
         self.lista_canciones = Lista()
 
+    def get_reporte(self):
+        self.lector()
+        self.write_file()
+        file = WebView()
+        file.run()
+
     def lector(self):
         doc = minidom.parse(self.ruta)
         canciones = doc.getElementsByTagName("cancion")
@@ -16,24 +23,24 @@ class Reporte:
             nombre = cancion.getAttribute("nombre")
             imagen = cancion.getElementsByTagName("imagen")[0]
             repro = cancion.getElementsByTagName("reproducciones")[0]
-            self.lista_canciones.agregarALaLista(Info_Ranking(nombre, imagen.firstChild.data, repro.firstChild.data))
+            self.lista_canciones.agregarALaLista(InfoRanking(nombre, imagen.firstChild.data, repro.firstChild.data))
 
         for i in range(0, self.lista_canciones.obtenerLongitud()):
-            print(self.lista_canciones.obtenerPorIndice(i+1))
+            print(self.lista_canciones.obtenerPorIndice(i + 1))
 
         self.ordenar()
 
     def obtener_pocentaje(self, cantidad):
-        max = int(self.lista_canciones.obtenerPorIndice(1).reproducciones)
-        resultado = (int(cantidad) * 100) / max
+        num_max = int(self.lista_canciones.obtenerPorIndice(1).reproducciones)
+        resultado = (int(cantidad) * 100) / num_max
         return round(resultado, 0)
 
     def ordenar(self):
         list_tmp = Lista()
         arr = [self.lista_canciones.obtenerLongitud()]
         # pasar datos de la lista a un arreglo
-        for i in range(0,self.lista_canciones.obtenerLongitud()):
-            arr.append(self.lista_canciones.obtenerPorIndice(i+1))
+        for i in range(0, self.lista_canciones.obtenerLongitud()):
+            arr.append(self.lista_canciones.obtenerPorIndice(i + 1))
 
         # ordenar el arreglo temporal o lista
         bubble_sort = BubbleSort(arr)
@@ -41,16 +48,15 @@ class Reporte:
 
         # pasar los datos del arreglo temporal a una lista doble
         for i in range(0, self.lista_canciones.obtenerLongitud()):
-            list_tmp.agregarALaLista(arr[i+1])
+            list_tmp.agregarALaLista(arr[i + 1])
         # asignar los datos de la lista doble a la lista de canciones ya con orden de Mayor a menor
         self.lista_canciones = list_tmp
 
         print(" ")
         for i in range(0, self.lista_canciones.obtenerLongitud()):
-            print(self.lista_canciones.obtenerPorIndice(i+1))
+            print(self.lista_canciones.obtenerPorIndice(i + 1))
 
-
-    def generarHTML(self):
+    def generar_html(self):
         head_0 = """
         <!DOCTYPE html>
         <html>
@@ -126,23 +132,24 @@ class Reporte:
                         background: linear-gradient(450deg,#00F260, #0575E6);
                     }\n
         """
-        animationCSS = ""
+        ani_css = ""
         for i in range(0, self.lista_canciones.obtenerLongitud()):
             if i == 9:
                 break
             else:
-                nombre = self.lista_canciones.obtenerPorIndice(i+1).nombreCancion
-                
-                n1 = nombre.replace(" ", "") +"-menu"
-                n2 = nombre.replace(" ", "") +"-barra"
-                p1 = "\t#"+n1+"{animation: "+n2+ " 5s forwards;\n\t}"
-                p2 = f"\n\t\t@keyframes {n2}"+" {"
-                p3 = "\n\t100% { \n\twidth: "+str(self.obtener_pocentaje(self.lista_canciones.obtenerPorIndice(i+1).reproducciones))+"%;"
-                p4 = "\n\t}\n\t} \n"
-                pf = p1+p2+p3+p4
-                animationCSS+= pf
+                nombre = self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion
 
-        head = head_0+animationCSS+ "</style> \n</head>\n"
+                n1 = nombre.replace(" ", "") + "-menu"
+                n2 = nombre.replace(" ", "") + "-barra"
+                p1 = "\t#" + n1 + "{animation: " + n2 + " 5s forwards;\n\t}"
+                p2 = f"\n\t\t@keyframes {n2}" + " {"
+                p3 = "\n\t100% { \n\twidth: " + str(
+                    self.obtener_pocentaje(self.lista_canciones.obtenerPorIndice(i + 1).reproducciones)) + "%;"
+                p4 = "\n\t}\n\t} \n"
+                pf = p1 + p2 + p3 + p4
+                ani_css += pf
+
+        head = head_0 + ani_css + "</style> \n</head>\n"
 
         body_0 = """
             <body>
@@ -156,21 +163,21 @@ class Reporte:
             if i == 9:
                 break
             else:
-                n1 = self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion.replace(" ", "")+"-menu"
+                n1 = self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion.replace(" ", "") + "-menu"
                 p1 = f"""
                     <div class="canciones">
                         <div class="detalles">
                             <span>{self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion}</span>
-                            <span>{self.lista_canciones.obtenerPorIndice(i+1).reproducciones}</span>
+                            <span>{self.lista_canciones.obtenerPorIndice(i + 1).reproducciones}</span>
                         </div>
                         <div class="menu">
                         <div id="{n1}"></div>
                     </div>
                     </div>\n
                     """
-                body_1+=p1
+                body_1 += p1
 
-        body = body_0+body_1
+        body = body_0 + body_1
 
         end = """
                 </div>
@@ -179,31 +186,44 @@ class Reporte:
                 </html>
             """
 
-        return head+body+end
+        return head + body + end
 
     def write_file(self):
-        with open("report.html", "w") as f:
-            f.write(self.generarHTML())
-            f.close
+        path = ManejoDirectorio()
+        with open(path.obtener_directorio_anterior() + "_report.html", "w") as f:
+            f.write(self.generar_html())
+            f.close()
             print("archivo escrito correctamente")
-class Info_Ranking:
-    def __init__(self, nombreCancion, rutaImg, reproducciones):
-        self.nombreCancion = nombreCancion
-        self.rutaImg = rutaImg
+
+
+class InfoRanking:
+    def __init__(self, nombre_cancion, ruta_img, reproducciones):
+        self.nombreCancion = nombre_cancion
+        self.rutaImg = ruta_img
         self.reproducciones = reproducciones
 
     def __str__(self):
-        str = f"Cancion= {self.nombreCancion}, Img= {self.rutaImg}, Count= {self.reproducciones}"
-        return str
+        cadena = f"Cancion= {self.nombreCancion}, Img= {self.rutaImg}, Count= {self.reproducciones}"
+        return cadena
+
+
+# Clase que 
+class ManejoDirectorio:
+    @staticmethod
+    def obtener_directorio_anterior():
+        separador = os.path.sep
+        dir_actual = os.path.dirname(os.path.abspath(__file__))
+        return separador.join(dir_actual.split(separador)[:-1])
+
 
 class WebView:
-    def run(self):
-        webbrowser.open_new_tab("report.html")
+    @staticmethod
+    def run():
+        patch = ManejoDirectorio()
+        webbrowser.open_new_tab(patch.obtener_directorio_anterior() + "_report.html")
+
         print("vista iniciada")
 
 
 rep = Reporte("/home/giovanic/Documentos/IPC2_CAPI/Ejemplos/proy/IPC2_Vac_2023/contador.xml")
-rep.lector()
-rep.write_file()
-fil = WebView()
-fil.run()
+rep.get_reporte()
