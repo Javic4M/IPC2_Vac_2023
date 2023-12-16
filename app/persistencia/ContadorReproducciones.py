@@ -34,4 +34,4 @@ class ContadorCanciones:
             reproducciones_element.text = "1"
 
         tree.write(self.ruta)
-        self.reporte.get_reporte()
+        self.reporte.write_file()
