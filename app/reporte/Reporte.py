@@ -11,7 +11,7 @@ class Reporte:
         self.lista_canciones = Lista()
 
     def get_reporte(self):
-        self.lector()
+        self.lista_canciones = Lista()
         self.write_file()
         file = WebView()
         file.run()
@@ -132,9 +132,10 @@ class Reporte:
                         background: linear-gradient(450deg,#00F260, #0575E6);
                     }\n
         """
+
         ani_css = ""
         for i in range(0, self.lista_canciones.obtenerLongitud()):
-            if i == 9:
+            if i == 10:
                 break
             else:
                 nombre = self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion
@@ -160,7 +161,7 @@ class Reporte:
 
         body_1 = ""
         for i in range(0, self.lista_canciones.obtenerLongitud()):
-            if i == 9:
+            if i == 10:
                 break
             else:
                 n1 = self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion.replace(" ", "") + "-menu"
@@ -189,7 +190,12 @@ class Reporte:
         return head + body + end
 
     def write_file(self):
+        self.lector()
         path = ManejoDirectorio()
+        if os.path.exists(path.obtener_directorio_anterior() + "_report.html"):
+            os.remove(path.obtener_directorio_anterior() + "_report.html")
+        else:
+            print("File not Found")
         with open(path.obtener_directorio_anterior() + "_report.html", "w") as f:
             f.write(self.generar_html())
             f.close()
@@ -207,7 +213,6 @@ class InfoRanking:
         return cadena
 
 
-# Clase que 
 class ManejoDirectorio:
     @staticmethod
     def obtener_directorio_anterior():
@@ -221,9 +226,4 @@ class WebView:
     def run():
         patch = ManejoDirectorio()
         webbrowser.open_new_tab(patch.obtener_directorio_anterior() + "_report.html")
-
         print("vista iniciada")
-
-
-rep = Reporte("/home/giovanic/Documentos/IPC2_CAPI/Ejemplos/proy/IPC2_Vac_2023/contador.xml")
-rep.get_reporte()
