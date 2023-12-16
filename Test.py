@@ -1,4 +1,6 @@
 from app.lista.Lista import Lista
+import tkinter as tk
+
 
 from app.biblioteca.Biblioteca import Biblioteca
 from app.biblioteca.Cancion import Cancion
@@ -10,18 +12,12 @@ from app.persistencia.PersistirListas import PersistirListas
 
 from app.biblioteca.ListaDeReproduccion import ListaDeReproduccion
 
-cancion1 = Cancion("Recover", "CHVRCHES", "Nectar", "Imgggen", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/07 - Recover.flac")
-cancion2 = Cancion("The Mother We Share",        "CHVRCHES", "Nectar", "Imagggen", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/01 - The Mother We Share.flac")
-cancion3 = Cancion("Gun",  "Joji", "CHVRCHES", "1940 Carmen.jpg", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/03 - Gun.flac")
-cancion4 = Cancion("Tether",           "CHVRCHES", "Nectar", "1940 Carmen.jpg", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/04 - Tether.flac")
-cancion5 = Cancion("arty", "CHVRCHES", "Nectar", "Imgggen", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/07 - Recover.flac")
-cancion6 = Cancion("asd",        "CHVRCHES", "Nectar", "Imagggen", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/01 - The Mother We Share.flac")
-cancion7 = Cancion("zzxc",  "Joji", "CHVRCHES", "1940 Carmen.jpg", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/03 - Gun.flac")
-cancion8 = Cancion("vbng",           "CHVRCHES", "Nectar", "1940 Carmen.jpg", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/04 - Tether.flac")
-cancion9 = Cancion("hjklui", "CHVRCHES", "Nectar", "Imgggen", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/07 - Recover.flac")
-cancion10 = Cancion("uio",        "CHVRCHES", "Nectar", "Imagggen", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/01 - The Mother We Share.flac")
-cancion11 = Cancion("poiu",  "Joji", "CHVRCHES", "1940 Carmen.jpg", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/03 - Gun.flac")
-cancion12 = Cancion("qwe",           "CHVRCHES", "Nectar", "1940 Carmen.jpg", "/home/giovanic/Música/2013 - The Bones of What You Believe (EU Limited Edition) FLAC/04 - Tether.flac")
+from app.ui.VentanaPrincipal import VentanaPrincipal
+
+cancion1 = Cancion("Normal People", "Joji", "Nectar", "Imgggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji  Normal People ft rei brown.mp3")
+cancion2 = Cancion("NITRUS",        "Joji", "Nectar", "Imagggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji NITROUS.mp3")
+cancion3 = Cancion("Afterthought",  "Joji", "Nectar", "1940 Carmen.jpg", "C:/Users/Jorge/OneDrive/Escritorio/Joji Afterthought.mp3")
+cancion4 = Cancion("777",           "Joji", "Nectar", "1940 Carmen.jpg", "C:/Users/Jorge/OneDrive/Escritorio/Joji 777.mp3")
 
 #cancion5 = Cancion("Mew", "Mon", "Auto", "Auto.jpg", "Mew.mp3")
 #cancion6 = Cancion("Mew", "Mon", "Auto", "Auto.jpg", "Mew.mp3")
@@ -33,14 +29,8 @@ biblioteca.agregarCancionPorObjeto(cancion1)
 biblioteca.agregarCancionPorObjeto(cancion2)
 biblioteca.agregarCancionPorObjeto(cancion3)
 biblioteca.agregarCancionPorObjeto(cancion4)
-biblioteca.agregarCancionPorObjeto(cancion5)
-biblioteca.agregarCancionPorObjeto(cancion6)
-biblioteca.agregarCancionPorObjeto(cancion7)
-biblioteca.agregarCancionPorObjeto(cancion8)
-biblioteca.agregarCancionPorObjeto(cancion9)
-biblioteca.agregarCancionPorObjeto(cancion10)
-biblioteca.agregarCancionPorObjeto(cancion11)
-biblioteca.agregarCancionPorObjeto(cancion12)
+#biblioteca.agregarCancionPorObjeto(cancion5)
+#biblioteca.agregarCancionPorObjeto(cancion6)
 
 
 print("\nBiblioteca de canciones agregada correctamente!\n")
@@ -70,50 +60,50 @@ reproductor.reproducir()
 
 opcion = None
 print("\n\n\n\n\n\n\n Reproductor\n")
-while opcion != "s":
-    print("s: salir")
-    print("p: pausar")
-    print("r: reanudar")
-    print("a: avanzar")
-    print("t: atras")
-    
-    print("i: aleatoio")
-    print("n: no aleatorio")
-    print("q: generar reporte")
-    opcion = input()
-    
-    if opcion == "s": 
-        break
-    elif opcion == "p":
-        reproductor.pausar()
-    elif opcion == "r":
-        reproductor.reanudar()
-    elif opcion == "a":
-        reproductor.avanzar()
-    elif opcion == "t":
-        reproductor.retroceder()
-    
-    elif opcion == "i":
-        reproductor.reproduccionAleatoria()
-    elif opcion == "n":
-        reproductor.reproduccionNoAleatoria()
-    elif opcion == "q":
-        reporte = Reporte("/home/giovanic/Documentos/IPC2_CAPI/Ejemplos/proy/IPC2_Vac_2023/contador.xml")
-        reporte.get_reporte()
+#while opcion != "s":
+#    print("s: salir")
+#    print("p: pausar")
+#    print("r: reanudar")
+#    print("a: avanzar")
+#    print("t: atras")
+#    
+#    print("i: aleatoio")
+#    print("n: no aleatorio")
+#    opcion = input()
+#    
+#    if opcion == "s": 
+#        break
+#    elif opcion == "p":
+#        reproductor.pausar()
+#    elif opcion == "r":
+#        reproductor.reanudar()
+#    elif opcion == "a":
+#        reproductor.avanzar()
+#    elif opcion == "t":
+#        reproductor.retroceder()
+#    
+#    elif opcion == "i":
+#        reproductor.reproduccionAleatoria()
+#    elif opcion == "n":
+#        reproductor.reproduccionNoAleatoria()
+#        
+#        
+lista = Lista()
+c1 = Cancion("Cancion 1", "Artista 1", "Album 1", "imagen1.jpg", "ruta1.mp3")
+c2 = Cancion("Cancion 2", "Artista 2", "Album 2", "imagen2.jpg", "ruta2.mp3")
+c3 = Cancion("Cancion 3", "Artista 3", "Album 3", "imagen3.jpg", "ruta3.mp3")
 
-# lista = Lista()
-# c1 = Cancion("Cancion 1", "Artista 1", "Album 1", "imagen1.jpg", "ruta1.mp3")
-# c2 = Cancion("Cancion 2", "Artista 2", "Album 2", "imagen2.jpg", "ruta2.mp3")
-# c3 = Cancion("Cancion 3", "Artista 3", "Album 3", "imagen3.jpg", "ruta3.mp3")
+biblioteca.agregarListaReproduccion("Lista de reproduccion con canciones ficticias")
+biblioteca.agregarCancionAListaReproduccion(c1, "Lista de reproduccion con canciones ficticias")
+biblioteca.agregarCancionAListaReproduccion(c2, "Lista de reproduccion con canciones ficticias")
+biblioteca.agregarCancionAListaReproduccion(c3, "Lista de reproduccion con canciones ficticias")
 
-# biblioteca.agregarListaReproduccion("Lista de reproduccion con canciones ficticias")
-# biblioteca.agregarCancionAListaReproduccion(c1, "Lista de reproduccion con canciones ficticias")
-# biblioteca.agregarCancionAListaReproduccion(c2, "Lista de reproduccion con canciones ficticias")
-# biblioteca.agregarCancionAListaReproduccion(c3, "Lista de reproduccion con canciones ficticias")
 
-# reporte = Reporte("/home/giovanic/Documentos/IPC2_CAPI/Ejemplos/proy/IPC2_Vac_2023/contador.xml")
-# reporte.get_reporte()
 
 #persistir_listas = PersistirListas()
+#
 #persistir_listas.persistir("Lista de reproduccion 1", lista)
 #persistir_listas.persistir("Todas las canciones", lista_canciones)
+
+ventana = VentanaPrincipal(biblioteca, reproductor)
+ventana.mainloop()
