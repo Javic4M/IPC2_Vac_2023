@@ -26,27 +26,29 @@ class FrameAlbum(tk.Frame):
         self.frame_titulo.grid(row=0, column=0, sticky="ew")
         self.frame_titulo.grid_propagate(False)  # Evitar que el marco se ajuste al tamaño de su contenido
         self.frame_titulo.config(width=900, height=100)
-        
+
         # Crear imagen del álbum
         self.portada = self.obtener_imagen_album()
         self.label_portada = tk.Label(self.frame_titulo, image=self.portada, bg="black")
         self.label_portada.grid(row=0, column=0, padx=10, pady=5)
-        
+
         # Crear label con el nombre del álbum
         self.nombre_album = tk.StringVar()
         self.obtener_nombre_album()
         self.label_nombre_album = tk.Label(self.frame_titulo, textvariable=self.nombre_album, font=("Arial", 35, "bold"), bg="black", fg="white")
         self.label_nombre_album.grid(row=0, column=1, padx=10, pady=5)
-        
+
         # Crear botón para reproducir el álbum
         self.imagen_play = self.obtener_imagen_play()
         self.boton_reproducir = tk.Button(self.frame_titulo, image=self.imagen_play, command=self.reproducir, bg="black", relief="flat", bd=0, highlightthickness=0)
         self.boton_reproducir.grid(row=0, column=2, padx=15, pady=5, sticky="e")
-        
+
         # Lista de canciones ----------------------------------------------------------------
         # Crear un canvas scrollable para la lista de canciones
         self.canvas = tk.Canvas(self, bg="black")
         self.canvas.grid(row=1, column=0, sticky="nsew")
+        self.grid_rowconfigure(1, weight=1)  # Configurar el peso de la fila para que se expanda
+        self.grid_columnconfigure(0, weight=1)  # Configurar el peso de la columna para que se expanda
         
         # Agregar un scrollbar para el canvas
         scrollbar = tk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
@@ -59,8 +61,13 @@ class FrameAlbum(tk.Frame):
         
         # Configurar el canvas para que se expanda con el frame de canciones
         self.frame_canciones.bind("<Configure>", lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all")))
-        self.agregar_canciones()
+        # Permitir desplazamiento con la rueda del mouse
+        self.canvas.bind_all("<MouseWheel>", lambda event: self.canvas.yview_scroll(int(-1*(event.delta/120)), "units"))
+
         
+        self.agregar_canciones()
+
+
         
     def mostrar_frame(self):
         self.master.cambiar_vista(self)
