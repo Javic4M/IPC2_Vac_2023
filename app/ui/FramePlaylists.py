@@ -81,7 +81,7 @@ class FramePlaylists(tk.Frame):
 
 
         frame_playlist = FramePlaylist(self.master, playlist, self.reproductor, self.biblioteca)
-        nuevo_boton = tk.Button(self.contenedor_botones, image=imagen, compound="top", bg="#181818", fg="white", font=("Arial", 15, "bold"), highlightthickness=0, relief="flat", text=nombre, command=frame_playlist.mostrar_frame)
+        nuevo_boton = tk.Button(self.contenedor_botones, image=imagen, compound="top", bg="#181818", fg="white", font=("Arial", 15, "bold"), highlightthickness=0, relief="flat", text=nombre, command=frame_playlist.mostrar_frame, width=140, height=140)
         #Mantener la referencia en la lista
         self.lista_frames_playlist.agregarALaLista(frame_playlist)
                 
@@ -91,7 +91,6 @@ class FramePlaylists(tk.Frame):
         if(self.contador_columnas == 6):
             self.contador_columnas = 0
             self.contador_filas += 1
-        
         
         nuevo_boton.grid(row=self.contador_filas, column=self.contador_columnas, sticky="ew", pady = 20, padx= 20)
         self.contador_columnas += 1

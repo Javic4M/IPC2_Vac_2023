@@ -75,12 +75,12 @@ class FrameArtista(tk.Frame):
         imagen = None
         try:
             imagen = Image.open(ruta)
-            imagen = imagen.resize((80,80))
+            imagen = imagen.resize((100,100))
             imagen = ImageTk.PhotoImage(imagen)
         except Exception as e:
             ruta = "./app/assets/comodin.jpg"
             imagen = Image.open(ruta)
-            imagen = imagen.resize((80,80))
+            imagen = imagen.resize((100,100))
             imagen = ImageTk.PhotoImage(imagen)
             
             
@@ -91,7 +91,7 @@ class FrameArtista(tk.Frame):
 
 
         frame_album = FrameAlbum(self.master, album, self.reproductor, self.biblioteca)
-        nuevo_boton = tk.Button(self.contenedor_botones, image=imagen, compound="top", bg="#181818", fg="white", font=("Arial", 15, "bold"), highlightthickness=0, relief="flat", text=nombre, command=frame_album.mostrar_frame)
+        nuevo_boton = tk.Button(self.contenedor_botones, image=imagen, compound="top", bg="#181818", fg="white", font=("Arial", 15, "bold"), highlightthickness=0, relief="flat", text=nombre, command=frame_album.mostrar_frame, width=140, height=140)
         #Mantener la referencia en la lista
         self.lista_frames_album.agregarALaLista(frame_album)
                 

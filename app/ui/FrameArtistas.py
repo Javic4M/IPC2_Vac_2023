@@ -75,7 +75,7 @@ class FrameArtistas(tk.Frame):
 
 
         frame_artista = FrameArtista(self.master, artista, self.reproductor, self.biblioteca)
-        nuevo_boton = tk.Button(self.contenedor_botones, image=imagen, compound="top", bg="#181818", fg="white", font=("Arial", 15, "bold"), highlightthickness=0, relief="flat", text=nombre, command=frame_artista.mostrar_frame)
+        nuevo_boton = tk.Button(self.contenedor_botones, image=imagen, compound="top", bg="#181818", fg="white", font=("Arial", 15, "bold"), highlightthickness=0, relief="flat", text=nombre, command=frame_artista.mostrar_frame, width=140, height=140)
         #Mantener la referencia en la lista
         self.lista_frames_artista.agregarALaLista(frame_artista)
                 
@@ -86,8 +86,8 @@ class FrameArtistas(tk.Frame):
             self.contador_columnas = 0
             self.contador_filas += 1
         
-        
         nuevo_boton.grid(row=self.contador_filas, column=self.contador_columnas, sticky="ew", pady = 20, padx= 20)
+
         self.contador_columnas += 1
 
     def agregar_artistas(self):
