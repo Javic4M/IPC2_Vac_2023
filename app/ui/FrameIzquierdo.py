@@ -5,6 +5,8 @@ from app.reproductor.Reproductor import Reproductor
 from app.biblioteca.Biblioteca import Biblioteca
 from app.biblioteca.Cancion import Cancion
 
+from app.reporte.Reporte import Reporte
+
 class FrameIzquierdo(tk.Frame):
     """
     Clase perteneciente al panel (frame) izquierdo de la aplizacion
@@ -146,16 +148,18 @@ class FrameIzquierdo(tk.Frame):
 
 
         self.frame_reproductor.pack(side = "bottom")
-    
+        self.reporte = Reporte("./contador.xml")
     
     
     # METODOS    
     # 1. Navegacion   
     def abrir_top_10(self):
         print("Abro el navegador para ver el top 10 de canciones mas reproducidas")
+        self.reporte.get_reporte()
     
     def navegar_a_artistas(self):
         print("Estoy navegando a artistas!")
+        self.master.mostrar_artistas()
         
     def navegar_a_albumes(self):  
         print("Estoy navegando a albumes!")

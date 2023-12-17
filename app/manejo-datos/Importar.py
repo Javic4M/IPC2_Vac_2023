@@ -9,7 +9,7 @@ class Importar:
     def __init__(self):
         self.lista_retornar = Lista()
 
-    def abrir_cuadro_dialogo():
+    def abrir_cuadro_dialogo(self):
         root = tk.Tk()
         root.withdraw() 
 
@@ -30,8 +30,8 @@ class Importar:
     #archivo = ET.parse(r'C:\Users\Usuario\Desktop\VAC IPC2 D2023\Proyecto1\IPC2_Vac_2023\app\manejo-datos\ejemplo.xml')
 
 
-    def importar_biblioteca():
-        tree = open(abrir_cuadro_dialogo())
+    def importar_biblioteca(self):
+        tree = open(self.abrir_cuadro_dialogo())
         xml_data = ET.fromstring(tree.read())
         lst_canciones = xml_data.findall('cancion')
 
