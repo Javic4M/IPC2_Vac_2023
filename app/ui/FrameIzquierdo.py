@@ -50,6 +50,8 @@ class FrameIzquierdo(tk.Frame):
         self.btn_espaciador1.grid(row = 2, column= 0, sticky="ns")
         self.btn_espaciador2 = tk.Button(self.frame_menu, bg = "black", text = " ", relief= "flat")
         self.btn_espaciador2.grid(row = 6, column= 0, sticky="ns")
+        self.btn_espaciador2 = tk.Button(self.frame_menu, bg = "black", text = " ", relief= "flat")
+        self.btn_espaciador2.grid(row = 8, column= 0, sticky="ns")
         
         self.image_top = self.directorio_assets + "Top.png"
         self.img_top = Image.open(self.image_top)
@@ -75,6 +77,11 @@ class FrameIzquierdo(tk.Frame):
         self.btn_listas_reproduccion = tk.Button(self.frame_menu, image = self.photo_listas_reproduccion, bg="black", fg = "white", font = ("Arial" , 15), relief="flat", command = self.navegar_a_listas_de_reproduccion, bd=0, highlightthickness=0)
         self.btn_listas_reproduccion.grid(row = 5, column=0, padx= 15, pady=10)
         
+        self.image_reproducir_todo = self.directorio_assets + "Reproducir_todo.png"
+        self.img_reproducir_todo = Image.open(self.image_reproducir_todo)
+        self.photo_reproducir_todo = ImageTk.PhotoImage(self.img_reproducir_todo)
+        self.btn_reproducir_todo = tk.Button(self.frame_menu, image = self.photo_reproducir_todo, bg="black", fg = "white", font = ("Arial" , 15), relief="flat", command = self.reproducir_todo, bd=0, highlightthickness=0)
+        self.btn_reproducir_todo.grid(row = 7, column=0, padx= 15, pady=10)
         
         
         self.frame_menu.pack()
@@ -200,6 +207,12 @@ class FrameIzquierdo(tk.Frame):
             self.reproductor.reproduccionNoAleatoria()
         else:
             self.reproductor.reproduccionAleatoria()
+        self.actualizarInformacion()
+        
+    def reproducir_todo(self):
+        todas_las_canciones = self.biblioteca.obtenerTodasLasCanciones()
+        self.reproductor.establecerListaAReproducir(todas_las_canciones)
+        self.reproductor.reproducir()
         self.actualizarInformacion()
         
     def actualizarInformacion(self):
