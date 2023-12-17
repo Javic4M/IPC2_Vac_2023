@@ -167,6 +167,7 @@ class FrameIzquierdo(tk.Frame):
     
     def navegar_a_listas_de_reproduccion(self):
         print("Estoy navegando a listas de reproduccion!")
+        self.master.mostrar_playlists()
         
         
         

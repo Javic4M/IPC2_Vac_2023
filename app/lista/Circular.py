@@ -93,8 +93,11 @@ class ListaCircular:
         actual = self._inicio
         
         for i in range(indice):
-            siguiente = actual.obtenerSiguiente()
-            actual = siguiente     
+            if actual != None:
+                siguiente = actual.obtenerSiguiente()
+                actual = siguiente  
+            else:
+                return None
         return actual
     
     def encontrarPorIndiceFinalInicio(self, indice): 
@@ -172,4 +175,7 @@ class ListaCircular:
     
     def obtenerPorIndice(self, indice):
         nodo = self.encontrarPorIndiceInicioFinal(indice)
-        return nodo.obtenerDato()
+        if nodo != None:
+            return nodo.obtenerDato()
+        else:
+            return None

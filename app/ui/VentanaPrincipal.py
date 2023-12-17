@@ -6,6 +6,7 @@ from app.reproductor.Reproductor import Reproductor
 from app.ui.FrameIzquierdo import FrameIzquierdo
 from app.ui.FrameArtistas import FrameArtistas
 from app.ui.FrameAlbumes import FrameAlbumes
+from app.ui.FramePlaylists import FramePlaylists
 
 class VentanaPrincipal(tk.Tk):
     
@@ -42,6 +43,8 @@ class VentanaPrincipal(tk.Tk):
         
         self.frame_albumes = FrameAlbumes(self, reproductor, biblioteca)
         
+        self.frame_playlists = FramePlaylists(self, reproductor, biblioteca)
+        
         self.vista_actual = None #Vista actual es el frame actual cargado en la parte derecha del reproductor
         self.vista_actual = self.frame_artistas
         
@@ -57,6 +60,9 @@ class VentanaPrincipal(tk.Tk):
     
     def mostrar_albumes(self):
         self.frame_albumes.mostrar_frame()
+    
+    def mostrar_playlists(self):
+        self.frame_playlists.mostrar_frame()
     
     def actualizar_informacion_reproductor(self):
         self.frame_izquierdo.actualizarInformacion()
