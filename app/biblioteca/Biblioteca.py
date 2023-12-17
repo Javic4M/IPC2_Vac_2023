@@ -132,6 +132,12 @@ class Biblioteca:
             print("Lista", nombre, "agregada correctamente!!!!!!")
         else:
             print("La lista de reproduccion", nombre, "ya existe por lo que no se agregara")
+    
+    # Establece una lista con listas de reproduccion
+    def cargargarListasReproduccion(self, listas_reproduccion):
+        if listas_reproduccion != None:
+            self._coleccion_listas_reproduccion = listas_reproduccion
+            print("Listas de reproduccion agregadas correctamente")
             
     #Agrega un objeto cancion a una lista de reproduccion en base a un nombre 
     def agregarCancionAListaReproduccion(self, cancion, nombre_lista):
