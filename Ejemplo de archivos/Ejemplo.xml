@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<biblioteca>
+    <cancion nombre="Normal People">
+        <artista>"Joji"</artista>
+        <album>"Nectar"</album>
+        <imagen>./Ejemplo de archivos/nectar.png</imagen>
+        <ruta>./Ejemplo de archivos/Joji  Normal People ft rei brown.mp3</ruta>
+    </cancion>
+    <cancion nombre="NITRUS">
+        <artista>"Joji"</artista>
+        <album>"Nectar"</album>
+        <imagen>./Ejemplo de archivos/nectar.png</imagen>
+        <ruta>./Ejemplo de archivos/Joji NITROUS.mp3</ruta>
+    </cancion>
+    <cancion nombre="Afterthought">
+        <artista>"Joji"</artista>
+        <album>"Nectar"</album>
+        <imagen>./Ejemplo de archivos/nectar.png</imagen>
+        <ruta>./Ejemplo de archivos/Joji Afterthought.mp3</ruta>
+    </cancion>
+    <cancion nombre="777">
+        <artista>"Joji"</artista>
+        <album>"Nectar"</album>
+        <imagen>./Ejemplo de archivos/nectar.png</imagen>
+        <ruta>./Ejemplo de archivos/Joji 777.mp3</ruta>
+    </cancion>
+
+    <cancion nombre="Dissolve">
+        <artista>"Joji"</artista>
+        <album>"Smithereens"</album>
+        <imagen>./Ejemplo de archivos/smithereens.jpg</imagen>
+        <ruta>"./Ejemplo de archivos/Joji - Dissolve.mp3</ruta>
+    </cancion>
+    <cancion nombre="YUKON">
+        <artista>"Joji"</artista>
+        <album>"Smithereens"</album>
+        <imagen>./Ejemplo de archivos/smithereens.jpg</imagen>
+        <ruta>./Ejemplo de archivos/Joji - YUKON.mp3</ruta>
+    </cancion>
+    <cancion nombre="BLAHBLAHBLAH DEMO">
+        <artista>"Joji"</artista>
+        <album>"Smithereens"</album>
+        <imagen>./Ejemplo de archivos/smithereens.jpg</imagen>
+        <ruta>./Ejemplo de archivos/Joji - DEMO.mp3</ruta>
+    </cancion>
+
+    <cancion nombre="Prendele Fuego">
+        <artista>"Mon Laferte"</artista>
+        <album>"Autopoietica"</album>
+        <imagen>./Ejemplo de archivos/Autopoietica.jpg</imagen>
+        <ruta>./Ejemplo de archivos/Mon - Prendele Fuego.mp3</ruta>
+    </cancion>
+    <cancion nombre="Pornocracia">
+        <artista>"Mon Laferte"</artista>
+        <album>"Autopoietica"</album>
+        <imagen>./Ejemplo de archivos/Autopoietica.jpg</imagen>
+        <ruta>./Ejemplo de archivos/Mon - Pornocracia.mp3</ruta>
+    </cancion>
+    <cancion nombre="Amantes Suicidas">
+        <artista>"Mon Laferte"</artista>
+        <album>"Autopoietica"</album>
+        <imagen>./Ejemplo de archivos/Autopoietica.jpg</imagen>
+        <ruta>./Ejemplo de archivos/Mon - Amantes Suicidas.mp3</ruta>
+    </cancion>
+    
+
+    
+</biblioteca>

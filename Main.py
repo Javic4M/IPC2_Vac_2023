@@ -43,5 +43,5 @@ biblioteca.cargargarListasReproduccion(listas_reproduccion)
 
 ventana_principal = VentanaPrincipal(biblioteca, reproductor)
 ventana_principal.mainloop()
-ventana_principal.focus()
+ventana_principal.focus_set()
 
