@@ -137,6 +137,10 @@ class Biblioteca:
     def agregarCancionAListaReproduccion(self, cancion, nombre_lista):
         #Buscar la lista de reproduccion
         lista = self.obtenerListaReproduccion(nombre_lista)
+        if lista == None: 
+            self.agregarListaReproduccion(nombre_lista)
+            lista = self.obtenerListaReproduccion(nombre_lista)
+        
         if(lista != None):
             #Agregar la cancion
             lista.agregarCancion(cancion)

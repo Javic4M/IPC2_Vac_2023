@@ -1,5 +1,6 @@
 import tkinter as tk
 
+from tkinter import simpledialog
 from PIL import Image, ImageTk
 
 from app.biblioteca.Album import Album
@@ -124,12 +125,16 @@ class FrameAlbum(tk.Frame):
                     print (nombre)
                 print(nombre)
                     
-                boton = tk.Button(self.frame_canciones, text=nombre, font = ("Arial", 16), bg = "black", fg = "white", border= 0, highlightthickness= 0, relief = "flat", bd = 0)
-                boton.pack(side = "top", padx = 20, pady = 80, fill = "x", expand=True)
+                boton = tk.Button(self.frame_canciones, text=nombre, font = ("Arial", 16), bg = "black", fg = "white", border= 0, highlightthickness= 0, relief = "flat", bd = 0, command = lambda: self.agregar_a_lista(cancion))
+                boton.pack(side = "top", padx = 10, pady = 10, fill = "x", expand=True)
+                print("boton de cacion: " + nombre + " agregado correctamente")
                 
                             
             contador += 1
     
     
-    def agregar_a_lista(self):
-        a = 10
+    def agregar_a_lista(self, cancion):
+        lista = simpledialog.askstring("Lista de reproduccion", "Por favor, ingrese la lista a la que añadir "+ cancion.obtenerNombre())
+        if isinstance(lista, str):
+            if lista != None or lista != "":
+                self.biblioteca.agregarCancionAListaReproduccion( cancion, lista)
