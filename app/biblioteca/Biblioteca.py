@@ -1,13 +1,20 @@
 from app.lista.Lista import Lista
+from app.lista.Circular import ListaCircular
+
 from app.biblioteca.Artista import Artista 
 from app.biblioteca.Album import Album
 from app.biblioteca.Cancion import Cancion
 from app.biblioteca.ColeccionArtistas import ColeccionArtistas
+from app.biblioteca.ListaDeReproduccion import ListaDeReproduccion
+
+from app.persistencia.PersistirListas import PersistirListas
 
 #Controla la totalidad de la biblioteca de música 
 class Biblioteca: 
     def __init__(self): 
         self._coleccion_artistas = ColeccionArtistas()
+        self._coleccion_listas_reproduccion = Lista()
+        self._persistirListas = PersistirListas()
     
     #Retorna una lista doble enlazada con todos los artistas
     def obtenerListaArtistas(self):
@@ -36,12 +43,7 @@ class Biblioteca:
                 contador_albumes_artista += 1
                 album_actual = lista_albumes_artista.encontrarPorIndiceInicioFinal(contador_albumes_artista)
                 lista_albumes.agregarALaLista(album_actual)
-                
-                
-                
-            #lista_albumes_artista = Lista()
-            #lista_albumes_artista = artista_actual.obtenerListaAlbumes()
-            #lista_albumes.agregarALaLista(lista_albumes_artista)
+
         return lista_albumes
     
     #Retorna todas las canciones (recorre la lista de todos los albumes)
@@ -69,7 +71,6 @@ class Biblioteca:
                 lista_canciones.agregarALaLista(cancion_actual)
                 #cancion_actual.imprimirCancion()
                 contador_cancion += 1
-            
             
         return lista_canciones        
     
@@ -100,8 +101,50 @@ class Biblioteca:
         imagen_cancion = cancion.get_imagen()
         ruta_cancion = cancion.get_ruta()
         objeto_album.agregarCancion(nombre_cancion, imagen_cancion, ruta_cancion)
-        
-        
+    
+    
+    
+    
+    
+    
+    def obtenerListasReproduccion(self):
+        return self._coleccion_listas_reproduccion
+    
+    def obtenerListaReproduccion(self, nombre):
+        longitud = self._coleccion_listas_reproduccion.obtenerLongitud()
+        contador = 1
+        while contador <= longitud:
+            lista_actual = self._coleccion_listas_reproduccion.encontrarPorIndiceInicioFinal(contador).obtenerDato()
+            if nombre == lista_actual.obtenerNombre():
+                return lista_actual
+            contador += 1
+        return None
+    
+    
+    #Crea una lista de reproduccion en base a un nombre     
+    def agregarListaReproduccion(self, nombre):
+        #1. verificar si hay una lista de reproduccion con ese nombre
+        lista_a_agregar = self.obtenerListaReproduccion(nombre)
+        if(lista_a_agregar == None):
+            #2. Crear la lista y agregarla
+            lista_a_agregar = ListaDeReproduccion(nombre)
+            self._coleccion_listas_reproduccion.agregarALaLista(lista_a_agregar)
+            print("Lista", nombre, "agregada correctamente!!!!!!")
+        else:
+            print("La lista de reproduccion", nombre, "ya existe por lo que no se agregara")
+            
+    #Agrega un objeto cancion a una lista de reproduccion en base a un nombre 
+    def agregarCancionAListaReproduccion(self, cancion, nombre_lista):
+        #Buscar la lista de reproduccion
+        lista = self.obtenerListaReproduccion(nombre_lista)
+        if(lista != None):
+            #Agregar la cancion
+            lista.agregarCancion(cancion)
+            
+            lista_canciones = lista.obtenerListaCanciones()
+            self._persistirListas.persistir(nombre_lista, lista_canciones)
+            
+            print ("La cancion: ", cancion.obtenerNombre(), "ha sido agregada correctamente a la lista de reproduccion", nombre_lista, "!!!!!")
         
     #Implementar logica para: 
     # agegar una cancion
