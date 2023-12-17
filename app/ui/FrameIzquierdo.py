@@ -163,6 +163,7 @@ class FrameIzquierdo(tk.Frame):
         
     def navegar_a_albumes(self):  
         print("Estoy navegando a albumes!")
+        self.master.mostrar_albumes()
     
     def navegar_a_listas_de_reproduccion(self):
         print("Estoy navegando a listas de reproduccion!")
