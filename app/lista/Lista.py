@@ -115,7 +115,7 @@ class Lista:
                 actual = actual.obtenerAnterior()   
             return actual 
     
-    def obtenerContenido(self, indice):
+    def obtner(self, indice):
         
         if (self.estaVacia()):
             print("\nLa Lista esta Vacia\n")

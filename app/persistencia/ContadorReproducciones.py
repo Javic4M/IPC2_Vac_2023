@@ -1,8 +1,12 @@
 import xml.etree.ElementTree as ET
 
+from app.reporte.Reporte import Reporte
+
+
 class ContadorCanciones:
     def __init__(self):
         self.ruta = "./contador.xml"
+        self.reporte = Reporte(self.ruta)
 
     def actualizar_contador(self, cancion):
         try:
@@ -30,3 +34,4 @@ class ContadorCanciones:
             reproducciones_element.text = "1"
 
         tree.write(self.ruta)
+        self.reporte.write_file()

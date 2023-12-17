@@ -1,0 +1,269 @@
+
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <title>Reportes</title>
+                <style>
+                    *{
+                        padding: 0;
+                        margin: 0;
+                        box-sizing: border-box;            
+                    }
+        
+                    body{
+                        height: 100vh;
+                        background: black;            
+                    }
+        
+                    .caja_padre{
+                        width: 40%;                
+                        min-width: 590px;
+                        position: absolute;
+                        transform: translate(-50%, -50%);
+                        left: 50%;
+                        top: 50%;
+                    }
+        
+                    .contenedor{
+                        width: 100%;
+                        padding: 30px 30px 50px;
+                        background: linear-gradient(450deg, #ff00cc, #333399);
+                        border: 2px solid rgba(0, 0, 0, 0.06);
+                        border-radius: 10px;
+                        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+                        backdrop-filter: blur(10px);                
+                    }
+        
+                    .contenedor *{
+                        font-family: 'Courier New', Courier, monospace;
+                        color: rgb(255, 255, 255);
+                        font-weight: bolder;
+                    }
+        
+                    h2{
+                        margin-bottom: 50px;
+                        letter-spacing: 2px;
+                        text-align: center;
+                        font-size: 25px;
+                        font-weight: lighter;
+                    }
+        
+                    .canciones:not(:last-child){
+                        margin-bottom: 25px;
+                    }
+        
+                    .detalles{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 8px;
+                    }
+        
+                    .menu{
+                        position: relative;
+                        border: 1px solid #ffffff;
+                        border-radius: 20px;
+                    }
+        
+                    .menu div{
+                        position: relative;
+                        width: 0;
+                        height: 8px;
+                        border-radius: 10px;
+                        background: linear-gradient(450deg,#00F260, #0575E6);
+                    }
+
+        	#NITRUS-menu{animation: NITRUS-barra 5s forwards;
+	}
+		@keyframes NITRUS-barra {
+	100% { 
+	width: 100.0%;
+	}
+	} 
+	#NormalPeople-menu{animation: NormalPeople-barra 5s forwards;
+	}
+		@keyframes NormalPeople-barra {
+	100% { 
+	width: 96.0%;
+	}
+	} 
+	#Afterthought-menu{animation: Afterthought-barra 5s forwards;
+	}
+		@keyframes Afterthought-barra {
+	100% { 
+	width: 93.0%;
+	}
+	} 
+	#777-menu{animation: 777-barra 5s forwards;
+	}
+		@keyframes 777-barra {
+	100% { 
+	width: 82.0%;
+	}
+	} 
+	#Prendelefuego-menu{animation: Prendelefuego-barra 5s forwards;
+	}
+		@keyframes Prendelefuego-barra {
+	100% { 
+	width: 41.0%;
+	}
+	} 
+	#Pornocracia-menu{animation: Pornocracia-barra 5s forwards;
+	}
+		@keyframes Pornocracia-barra {
+	100% { 
+	width: 36.0%;
+	}
+	} 
+	#Amantessuicidas-menu{animation: Amantessuicidas-barra 5s forwards;
+	}
+		@keyframes Amantessuicidas-barra {
+	100% { 
+	width: 33.0%;
+	}
+	} 
+	#Dissolve-menu{animation: Dissolve-barra 5s forwards;
+	}
+		@keyframes Dissolve-barra {
+	100% { 
+	width: 28.0%;
+	}
+	} 
+	#YUKON-menu{animation: YUKON-barra 5s forwards;
+	}
+		@keyframes YUKON-barra {
+	100% { 
+	width: 18.0%;
+	}
+	} 
+	#BLAHBLAHBLAHDEMO-menu{animation: BLAHBLAHBLAHDEMO-barra 5s forwards;
+	}
+		@keyframes BLAHBLAHBLAHDEMO-barra {
+	100% { 
+	width: 14.0%;
+	}
+	} 
+</style> 
+</head>
+
+            <body>
+                <div class="caja_padre">
+                    <div class="contenedor">
+                        <h2>RESUMEN DE REPRODUCCIONES</h2>
+
+            
+                    <div class="canciones">
+                        <div class="detalles">
+                            <span>NITRUS</span>
+                            <span>123</span>
+                        </div>
+                        <div class="menu">
+                        <div id="NITRUS-menu"></div>
+                    </div>
+                    </div>
+
+                    
+                    <div class="canciones">
+                        <div class="detalles">
+                            <span>Normal People</span>
+                            <span>118</span>
+                        </div>
+                        <div class="menu">
+                        <div id="NormalPeople-menu"></div>
+                    </div>
+                    </div>
+
+                    
+                    <div class="canciones">
+                        <div class="detalles">
+                            <span>Afterthought</span>
+                            <span>115</span>
+                        </div>
+                        <div class="menu">
+                        <div id="Afterthought-menu"></div>
+                    </div>
+                    </div>
+
+                    
+                    <div class="canciones">
+                        <div class="detalles">
+                            <span>777</span>
+                            <span>101</span>
+                        </div>
+                        <div class="menu">
+                        <div id="777-menu"></div>
+                    </div>
+                    </div>
+
+                    
+                    <div class="canciones">
+                        <div class="detalles">
+                            <span>Prendele fuego</span>
+                            <span>51</span>
+                        </div>
+                        <div class="menu">
+                        <div id="Prendelefuego-menu"></div>
+                    </div>
+                    </div>
+
+                    
+                    <div class="canciones">
+                        <div class="detalles">
+                            <span>Pornocracia</span>
+                            <span>44</span>
+                        </div>
+                        <div class="menu">
+                        <div id="Pornocracia-menu"></div>
+                    </div>
+                    </div>
+
+                    
+                    <div class="canciones">
+                        <div class="detalles">
+                            <span>Amantes suicidas</span>
+                            <span>40</span>
+                        </div>
+                        <div class="menu">
+                        <div id="Amantessuicidas-menu"></div>
+                    </div>
+                    </div>
+
+                    
+                    <div class="canciones">
+                        <div class="detalles">
+                            <span>Dissolve</span>
+                            <span>34</span>
+                        </div>
+                        <div class="menu">
+                        <div id="Dissolve-menu"></div>
+                    </div>
+                    </div>
+
+                    
+                    <div class="canciones">
+                        <div class="detalles">
+                            <span>YUKON</span>
+                            <span>22</span>
+                        </div>
+                        <div class="menu">
+                        <div id="YUKON-menu"></div>
+                    </div>
+                    </div>
+
+                    
+                    <div class="canciones">
+                        <div class="detalles">
+                            <span>BLAHBLAHBLAH DEMO</span>
+                            <span>17</span>
+                        </div>
+                        <div class="menu">
+                        <div id="BLAHBLAHBLAHDEMO-menu"></div>
+                    </div>
+                    </div>
+
+                    
+                </div>
+                </div>
+                </body>
+                </html>
+            

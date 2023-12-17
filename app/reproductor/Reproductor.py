@@ -99,8 +99,12 @@ class Reproductor:
         self._aleatorio = False
         print("Modo de reproduccion configurado en no Aleatorio!")
         self.reproducir()
+    
+    def obtenerCancionActual(self):
+        return self._cancion_actual
 
-
+    def esAleatorio(self):
+        return self._aleatorio
 
 #def reproducir_audio(ruta_archivo):
 #    pygame.mixer.init()
