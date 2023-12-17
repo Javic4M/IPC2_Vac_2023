@@ -8,7 +8,7 @@ from app.ui.FrameAlbum import FrameAlbum
 
 class FrameArtista(tk.Frame):
     
-    def __init__(self, master, artista, *args, **kwargs):
+    def __init__(self, master, artista, reproductor, biblioteca, *args, **kwargs):
         """
             params: 
                 master: ventana principal
@@ -18,6 +18,8 @@ class FrameArtista(tk.Frame):
         
         self.master = master
         self.artista = artista
+        self.reproductor = reproductor
+        self.biblioteca = biblioteca
         self.lista_frames_album = Lista()
         
         # Crear el label en la parte superior con el nombre del artista
@@ -88,7 +90,7 @@ class FrameArtista(tk.Frame):
             nombre = "Album desconocido"
 
 
-        frame_album = FrameAlbum(self.master, album)
+        frame_album = FrameAlbum(self.master, album, self.reproductor, self.biblioteca)
         nuevo_boton = tk.Button(self.contenedor_botones, image=imagen, compound="top", bg="#181818", fg="white", font=("Arial", 15, "bold"), highlightthickness=0, relief="flat", text=nombre, command=frame_album.mostrar_frame)
         #Mantener la referencia en la lista
         self.lista_frames_album.agregarALaLista(frame_album)

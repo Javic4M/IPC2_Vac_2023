@@ -35,7 +35,7 @@ class VentanaPrincipal(tk.Tk):
         self.frame_izquierdo.pack(side =  "left", padx=20, pady = 25)
         
         lista_artistas = self.biblioteca.obtenerListaArtistas()
-        self.frame_artistas = FrameArtistas(self, lista_artistas)
+        self.frame_artistas = FrameArtistas(self, lista_artistas, reproductor, biblioteca)
         self.frame_artistas.pack(side = "right", fill="both", expand = True, padx=1)
         
         self.vista_actual = None #Vista actual es el frame actual cargado en la parte derecha del reproductor
@@ -50,3 +50,6 @@ class VentanaPrincipal(tk.Tk):
     
     def mostrar_artistas(self):
         self.cambiar_vista(self.frame_artistas)
+    
+    def actualizar_informacion_reproductor(self):
+        self.frame_izquierdo.actualizarInformacion()

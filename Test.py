@@ -14,10 +14,16 @@ from app.biblioteca.ListaDeReproduccion import ListaDeReproduccion
 
 from app.ui.VentanaPrincipal import VentanaPrincipal
 
-cancion1 = Cancion("Normal People", "Joji", "Nectar", "Imgggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji  Normal People ft rei brown.mp3")
-cancion2 = Cancion("NITRUS",        "Joji", "Nectar", "Imagggen", "C:/Users/Jorge/OneDrive/Escritorio/Joji NITROUS.mp3")
-cancion3 = Cancion("Afterthought",  "Joji", "Nectar", "1940 Carmen.jpg", "C:/Users/Jorge/OneDrive/Escritorio/Joji Afterthought.mp3")
-cancion4 = Cancion("777",           "Joji", "Nectar", "1940 Carmen.jpg", "C:/Users/Jorge/OneDrive/Escritorio/Joji 777.mp3")
+ruta_escritorio = "C:/Users/Jorge/OneDrive/Escritorio/"
+
+nectar = ruta_escritorio + "nectar.png"
+cancion1 = Cancion("Normal People", "Joji", "Nectar", nectar, "C:/Users/Jorge/OneDrive/Escritorio/Joji  Normal People ft rei brown.mp3")
+cancion2 = Cancion("NITRUS",        "Joji", "Nectar", nectar, "C:/Users/Jorge/OneDrive/Escritorio/Joji NITROUS.mp3")
+cancion3 = Cancion("Afterthought",  "Joji", "Nectar", nectar, "C:/Users/Jorge/OneDrive/Escritorio/Joji Afterthought.mp3")
+cancion4 = Cancion("777",           "Joji", "Nectar", nectar, "C:/Users/Jorge/OneDrive/Escritorio/Joji 777.mp3")
+
+
+
 
 #cancion5 = Cancion("Mew", "Mon", "Auto", "Auto.jpg", "Mew.mp3")
 #cancion6 = Cancion("Mew", "Mon", "Auto", "Auto.jpg", "Mew.mp3")
@@ -29,8 +35,23 @@ biblioteca.agregarCancionPorObjeto(cancion1)
 biblioteca.agregarCancionPorObjeto(cancion2)
 biblioteca.agregarCancionPorObjeto(cancion3)
 biblioteca.agregarCancionPorObjeto(cancion4)
-#biblioteca.agregarCancionPorObjeto(cancion5)
-#biblioteca.agregarCancionPorObjeto(cancion6)
+
+smithereens = ruta_escritorio +"smithereens.jpg"
+cancion1 = Cancion("Dissolve", "Joji", "Smithereens", smithereens, "C:/Users/Jorge/OneDrive/Escritorio/Joji - Dissolve.mp3")
+cancion2 = Cancion("YUKON",        "Joji", "Smithereens", smithereens, "C:/Users/Jorge/OneDrive/Escritorio/Joji - YUKON.mp3")
+cancion3 = Cancion("BLAHBLAHBLAH DEMO",  "Joji", "Smithereens", smithereens, "C:/Users/Jorge/OneDrive/Escritorio/Joji - DEMO.mp3")
+biblioteca.agregarCancionPorObjeto(cancion1)
+biblioteca.agregarCancionPorObjeto(cancion2)
+biblioteca.agregarCancionPorObjeto(cancion3)
+
+
+autopoietica = ruta_escritorio +"Autopoietica.jpg"
+cancion1 = Cancion("Prendele fuego",    "Mon Laferte", "Autopoietica", autopoietica, "C:/Users/Jorge/OneDrive/Escritorio/Mon - Prendele Fuego.mp3")
+cancion2 = Cancion("Pornocracia",       "Mon Laferte", "Autopoietica", autopoietica, "C:/Users/Jorge/OneDrive/Escritorio/Mon - Pornocracia.mp3")
+cancion3 = Cancion("Amantes suicidas",  "Mon Laferte", "Autopoietica", autopoietica, "C:/Users/Jorge/OneDrive/Escritorio/Mon - Amantes Suicidas.mp3")
+biblioteca.agregarCancionPorObjeto(cancion1)
+biblioteca.agregarCancionPorObjeto(cancion2)
+biblioteca.agregarCancionPorObjeto(cancion3)
 
 
 print("\nBiblioteca de canciones agregada correctamente!\n")

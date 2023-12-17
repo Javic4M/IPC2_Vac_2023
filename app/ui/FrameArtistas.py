@@ -8,7 +8,7 @@ from app.ui.FrameArtista import FrameArtista
 class FrameArtistas(tk.Frame):
     
     
-    def __init__(self, master, lista_artistas, *args, **kwargs):
+    def __init__(self, master, lista_artistas, reproductor, biblioteca,*args, **kwargs):
         
         """
             params: 
@@ -21,8 +21,9 @@ class FrameArtistas(tk.Frame):
 
         self.lista_artistas = lista_artistas
         self.master = master
+        self.reproductor = reproductor
+        self.biblioteca = biblioteca
         
-
         # Crear el label en la parte superior
         label_artistas = tk.Label(self, text="Artistas", font=("Arial", 35, "bold"), bg="black", fg="white")
         label_artistas.grid(row=0, column=0, sticky="w", pady = 20, padx=15)
@@ -73,7 +74,7 @@ class FrameArtistas(tk.Frame):
             nombre = "Artista desconocido"
 
 
-        frame_artista = FrameArtista(self.master, artista)
+        frame_artista = FrameArtista(self.master, artista, self.reproductor, self.biblioteca)
         nuevo_boton = tk.Button(self.contenedor_botones, image=imagen, compound="top", bg="#181818", fg="white", font=("Arial", 15, "bold"), highlightthickness=0, relief="flat", text=nombre, command=frame_artista.mostrar_frame)
         #Mantener la referencia en la lista
         self.lista_frames_artista.agregarALaLista(frame_artista)
