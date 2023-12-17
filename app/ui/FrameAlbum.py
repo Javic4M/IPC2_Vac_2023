@@ -127,7 +127,7 @@ class FrameAlbum(tk.Frame):
                 
                 imagen = tk.PhotoImage(file="./app/assets/Mas.png")
                     
-                boton = tk.Button(self.frame_canciones, text=nombre + "         ", font = ("Arial", 20), bg = "black", fg = "white", border= 0, highlightthickness= 0, relief = "flat", bd = 0, command = lambda: self.agregar_a_lista(cancion), image = imagen, compound="right", width=700, height=60)
+                boton = tk.Button(self.frame_canciones, text=nombre + "         ", font = ("Arial", 20), bg = "black", fg = "white", border= 0, highlightthickness= 0, relief = "flat", bd = 0, command = lambda cancion = cancion: self.agregar_a_lista(cancion), image = imagen, compound="right", width=700, height=60)
                 boton.pack(side = "top", padx = 10, pady = 10, fill = "x", expand=True)
                 print("boton de cacion: " + nombre + " agregado correctamente")
                 boton.image = imagen
