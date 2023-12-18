@@ -38,7 +38,7 @@ Si se tienen problemas a instalar las librerias, revisar la seccion Problemas Ge
 ## FAQs
 ***
 A list of frequently asked questions
-1. **¿Como se agregan las canciones?: **
+1. **¿Como se agregan las canciones?**
 Las canciones se pueden agregar de dos formas:
 
 >Individual (Archivo MP3): Al dar clic en el boton (NOMBRE BOTON), se abrira una ventana donde se puede escoger entre esta opcion y la siguiente, al dar clic en (NOMBRE BOTON) se abrira una ventana para buscar su archivo mp3 (podrá llenar su información de manera manual o llenarse de manera automática)
