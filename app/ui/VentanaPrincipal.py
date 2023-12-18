@@ -21,10 +21,15 @@ class VentanaPrincipal(tk.Tk):
         # Configuracion de la ventana
         super().__init__()
         self.title("IPC2 Music")
-        self.iconbitmap("./app/assets/ipc2.ico")
         self.configure(bg="black")
         self.geometry("900x600")
         
+        #lanzara un mensaje en dado caso no se muestre el icono en sistemas linux.
+        try:
+            self.iconbitmap("./app/assets/ipc2.ico")
+        except:
+            print("No es posible cargar los iconos")
+            
         # Atributos de la ventana ----------------------------------------------------------------
                 
         # Backend
@@ -62,7 +67,12 @@ class VentanaPrincipal(tk.Tk):
         self.frame_albumes.mostrar_frame()
     
     def mostrar_playlists(self):
+        self.refresh_playlists_frame()
         self.frame_playlists.mostrar_frame()
     
     def actualizar_informacion_reproductor(self):
         self.frame_izquierdo.actualizarInformacion()
+        
+    def refresh_playlists_frame(self):
+        self.frame_playlists.destroy()
+        self.frame_playlists = FramePlaylists(self, self.reproductor, self.biblioteca)
