@@ -3,20 +3,21 @@ from graphviz import nohtml
 from app.lista.Lista import Lista
 from app.biblioteca.Cancion import Cancion
 from app.biblioteca.Album import Album
-from app.biblioteca.Biblioteca import Biblioteca
 
-class Graphviz:
+class ImagenGraphviz:
     
-    def graficarTodasLasCanciones(listaDeReproduccion: Lista):
-        longitud = listaDeReproduccion.obtenerLongitud()    
-        
-        dot = Digraph(filename="GraphvizCanciones", format="jpg", node_attr={'width': '.2', 'height': '.5'})
+    # Recibe de Parametros una Lista de Canciones para poder mostrar
+    def graficarTodasLasCanciones(self, listaDeReproduccion: Lista):
+        longitud = listaDeReproduccion.obtenerLongitud()   
+                    
+        dot = Digraph(filename="GraphvizCanciones", format="pdf", node_attr={'width': '.2', 'height': '.5'})
 
         contador = 0
+        cancion: Cancion
+        
         dot.node('1','Lista de Reproducción')
-        while contador < longitud:
+        while contador < 8 and contador < longitud:
             contador += 1
-            cancion: Cancion
             cancion = listaDeReproduccion.encontrarPorIndiceInicioFinal(contador).obtenerDato()
             dot.node(str(contador + 1), nohtml(cancion.get_nombre() + ' | { Album:  ' +  cancion.get_album() + ' | Artista:  ' + cancion.get_artista() + '}'), style='filled', shape='record')
             dot.edges([str(contador) + str(contador + 1)])
@@ -25,10 +26,10 @@ class Graphviz:
         dot.render(view=True)
        
     # Recibe como parametros una lista de Albumnes para que los pueda mostrar
-    def graficarAlbum(listaDeAlbumnes: Lista):
+    def graficarAlbum(self, listaDeAlbumnes: Lista):
         longitudAlbumnes = listaDeAlbumnes.obtenerLongitud() 
         
-        dot = Digraph(filename='GraphvizAlbum', format="jpg", node_attr={'width': '.2', 'height': '.5'})
+        dot = Digraph(filename='GraphvizAlbum', format="pdf", node_attr={'width': '.2', 'height': '.5'})
 
         contardorAlbumnes = 0
         contadorCanciones = 0
@@ -63,10 +64,9 @@ class Graphviz:
         print(dot.source)  
         dot.render(view=True) 
       
-        
-# COdigo de prueba si quieren ver el resutaldo, importante tener instanlado Graphviz
 
-c = Graphviz
+"""
+c = ImagenGraphviz()
 biblio = Biblioteca()
 biblio.agregarCancionPorDatos("Merry Chirstman", "Javier", "Navidad", "imagen_1.png", "ruta_1.mp3")
 biblio.agregarCancionPorDatos("Navidad", "Javier", "Navidad", "imagen_2.png", "ruta_2.mp3")
@@ -77,3 +77,4 @@ biblio.agregarCancionPorDatos("Belen", "Luis", "Reflexion", "imagen_3.png", "rut
 
 c.graficarTodasLasCanciones(biblio.obtenerTodasLasCanciones())
 #c.graficarAlbum(biblio.obtenerListaAlbumes())
+"""
