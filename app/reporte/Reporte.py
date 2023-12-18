@@ -225,5 +225,6 @@ class WebView:
     @staticmethod
     def run():
         patch = ManejoDirectorio()
-        webbrowser.open_new_tab(patch.obtener_directorio_anterior() + "_report.html") #abre una el archivo html en el navegador
+        #abre el archivo html en una nueva ventana del navegador
+        webbrowser.open_new_tab(patch.obtener_directorio_anterior() + "_report.html")
         print("vista iniciada")
