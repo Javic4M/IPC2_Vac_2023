@@ -16,7 +16,7 @@ Las tecnologias usadas para la realizacion del proyecto fueron:
 * [IDE: Visual Studio Code](https://code.visualstudio.com/): Version 1.85
 * [Libreria: PyGame](https://www.pygame.org): Version 2.5.1
 * [Libreria: Pillow](https://pypi.org/project/Pillow/): Version 2.5.1
-## Installation
+## Instalacion
 ***
 Para ejecutar el programa, es necesario tener las librerias PyGame y Pillow en su ultima versión a la fecha (18 de diciembre de 2023).
 
@@ -38,10 +38,10 @@ Si se tienen problemas a instalar las librerias, revisar la seccion Problemas Ge
 ## FAQs
 ***
 A list of frequently asked questions
-1. **¿Como se agregan las canciones?**
+1. **¿Como se agregan las canciones?: **
 Las canciones se pueden agregar de dos formas
-*Individual (Archivo MP3): Al dar clic en el boton (NOMBRE BOTON), se abrira una ventana donde se puede escoger entre esta opcion y la siguiente, al dar clic en (NOMBRE BOTON) se abrira una ventana para buscar su archivo mp3 (podrá llenar su información de manera manual o llenarse de manera automática)
-*Grupal (Archivo XML): Al dar clic en el boton (NOMBRE BOTON), se abrira una ventana donde se puede escoger entre esta opcion y la anterior, al dar clic en (NOMBRE BOTON) se abrira una ventana para buscar su archivo XML (en esta opcion no esta disponible el llenado de informacion manual, ya que esos datos deberian estar en el archivo XML)
+>Individual (Archivo MP3): Al dar clic en el boton (NOMBRE BOTON), se abrira una ventana donde se puede escoger entre esta opcion y la siguiente, al dar clic en (NOMBRE BOTON) se abrira una ventana para buscar su archivo mp3 (podrá llenar su información de manera manual o llenarse de manera automática)
+>Grupal (Archivo XML): Al dar clic en el boton (NOMBRE BOTON), se abrira una ventana donde se puede escoger entre esta opcion y la anterior, al dar clic en (NOMBRE BOTON) se abrira una ventana para buscar su archivo XML (en esta opcion no esta disponible el llenado de informacion manual, ya que esos datos deberian estar en el archivo XML)
 2. **Otra pregunta**
 Otra respuesta
 3. **¿Que formato debe tener los archivos XML?**
