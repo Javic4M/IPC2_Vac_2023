@@ -11,12 +11,12 @@ class Reporte:
         self.lista_canciones = Lista()
 
     def get_reporte(self):
-        self.lista_canciones = Lista()
         self.write_file()
         file = WebView()
         file.run()
 
     def lector(self):
+        self.lista_canciones = Lista() #limpiar la lista.
         doc = minidom.parse(self.ruta)
         canciones = doc.getElementsByTagName("cancion")
         for cancion in canciones:
@@ -140,10 +140,10 @@ class Reporte:
             else:
                 nombre = self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion
 
-                n1 = nombre.replace(" ", "") + "-menu"
-                n2 = nombre.replace(" ", "") + "-barra"
-                p1 = "\t#" + n1 + "{animation: " + n2 + " 5s forwards;\n\t}"
-                p2 = f"\n\t\t@keyframes {n2}" + " {"
+                id_menu = nombre.replace(" ", "") + "-menu"
+                id_barra_animacion = nombre.replace(" ", "") + "-barra"
+                p1 = "\t#a" + id_menu + "{animation: a" + id_barra_animacion + " 3s forwards;\n\t}"
+                p2 = f"\n\t\t@keyframes a{id_barra_animacion}" + " {"
                 p3 = "\n\t100% { \n\twidth: " + str(
                     self.obtener_pocentaje(self.lista_canciones.obtenerPorIndice(i + 1).reproducciones)) + "%;"
                 p4 = "\n\t}\n\t} \n"
@@ -164,19 +164,19 @@ class Reporte:
             if i == 10:
                 break
             else:
-                n1 = self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion.replace(" ", "") + "-menu"
-                p1 = f"""
+                id_menu = self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion.replace(" ", "") + "-menu"
+                contenido = f"""
                     <div class="canciones">
                         <div class="detalles">
                             <span>{self.lista_canciones.obtenerPorIndice(i + 1).nombreCancion}</span>
                             <span>{self.lista_canciones.obtenerPorIndice(i + 1).reproducciones}</span>
                         </div>
                         <div class="menu">
-                        <div id="{n1}"></div>
+                        <div id="a{id_menu}"></div>
                     </div>
                     </div>\n
                     """
-                body_1 += p1
+                body_1 += contenido
 
         body = body_0 + body_1
 
@@ -225,5 +225,5 @@ class WebView:
     @staticmethod
     def run():
         patch = ManejoDirectorio()
-        webbrowser.open_new_tab(patch.obtener_directorio_anterior() + "_report.html")
+        webbrowser.open_new_tab(patch.obtener_directorio_anterior() + "_report.html") #abre una el archivo html en el navegador
         print("vista iniciada")
