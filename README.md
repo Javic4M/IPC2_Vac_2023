@@ -29,6 +29,12 @@ Para instalar Pillow, se ingresa el siguiente comando en la terminal/CMD (En VSC
 ```bash
 pip install Pillow
 ```
+
+Para instalar Graphbiz, se ingresa el siguiente comando en la terminal/CMD (En VSC es suficiente abrir la terminal).
+```bash
+pip install graphviz
+```
+
 Si se tienen problemas a instalar las librerias, revisar la seccion Problemas Generales.
 
 ## Problemas Generales
