@@ -8,11 +8,13 @@
 ***
 El proyecto consiste en realizar una aplicacion de escritorio, la cual es un reproductor de musica (de nombre IPCmusic) con una interfaz de usuario amigable la cual permite ordenar la musica en el ordenador del usuario, asi como presentar estadisticas de las canciones
 ### Screenshot
+***
 <img src="https://i.imgur.com/kWmEQ9a.jpg"/>
 <img src="https://i.imgur.com/GUjH2ML.jpg"/>
 <img src="https://i.imgur.com/ectR5D5.jpg"/>
 <img src="https://i.imgur.com/BjWCvKq.jpg"/>
 <img src="https://i.imgur.com/9rIQkcG.jpg"/>
+
 ## Tecnologias
 ***
 Las tecnologias usadas para la realizacion del proyecto fueron:
@@ -21,6 +23,7 @@ Las tecnologias usadas para la realizacion del proyecto fueron:
 * [Libreria: PyGame](https://www.pygame.org): Version 2.5.1
 * [Libreria: Pillow](https://pypi.org/project/Pillow/): Version 2.5.1
 * [Libreria: Graphbiz](https://graphviz.org/)
+
 ## Instalacion
 ***
 Para ejecutar el programa, es necesario tener las librerias PyGame y Pillow en su ultima versión a la fecha (18 de diciembre de 2023).
