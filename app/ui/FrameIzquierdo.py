@@ -1,5 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageTk
+from app.Grafica.ImagenGraphviz import ImagenGraphviz
 
 from app.reproductor.Reproductor import Reproductor
 from app.biblioteca.Biblioteca import Biblioteca
@@ -76,6 +77,12 @@ class FrameIzquierdo(tk.Frame):
         self.photo_listas_reproduccion = ImageTk.PhotoImage(self.img_listas_reproduccion)
         self.btn_listas_reproduccion = tk.Button(self.frame_menu, image = self.photo_listas_reproduccion, bg="black", fg = "white", font = ("Arial" , 15), relief="flat", command = self.navegar_a_listas_de_reproduccion, bd=0, highlightthickness=0)
         self.btn_listas_reproduccion.grid(row = 5, column=0, padx= 15, pady=10)
+
+        self.image_grafica = self.directorio_assets + "graphviz.png"
+        self.img_grafica = Image.open(self.image_grafica)
+        self.photo_grafica = ImageTk.PhotoImage(self.img_grafica)
+        self.btn_graficar = tk.Button(self.frame_menu, image = self.photo_grafica, bg="black", fg = "white", font = ("Arial" , 15), relief="flat", command = self.graficar_lista_de_canciones, bd=0, highlightthickness=0)
+        self.btn_graficar.grid(row = 6, column=0, padx= 15, pady=10)
         
         self.image_reproducir_todo = self.directorio_assets + "Reproducir_todo.png"
         self.img_reproducir_todo = Image.open(self.image_reproducir_todo)
@@ -175,6 +182,14 @@ class FrameIzquierdo(tk.Frame):
     def navegar_a_listas_de_reproduccion(self):
         print("Estoy navegando a listas de reproduccion!")
         self.master.mostrar_playlists()
+
+    def graficar_lista_de_canciones(self):
+        print("Estoy navegando a la grafica")
+        c = ImagenGraphviz()
+        listaGrafica = self.biblioteca.obtenerTodasLasCanciones()
+        #listaGrafica = self.biblioteca.obtenerListaAlbumes()
+        c.graficarTodasLasCanciones(listaGrafica)
+        #c.graficarAlbum(listaGrafica)
         
         
         
