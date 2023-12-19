@@ -78,7 +78,7 @@ class FrameIzquierdo(tk.Frame):
         self.btn_listas_reproduccion = tk.Button(self.frame_menu, image = self.photo_listas_reproduccion, bg="black", fg = "white", font = ("Arial" , 15), relief="flat", command = self.navegar_a_listas_de_reproduccion, bd=0, highlightthickness=0)
         self.btn_listas_reproduccion.grid(row = 5, column=0, padx= 15, pady=10)
 
-        self.image_grafica = self.directorio_assets + "graphviz.png"
+        self.image_grafica = self.directorio_assets + "grafo.png"
         self.img_grafica = Image.open(self.image_grafica)
         self.photo_grafica = ImageTk.PhotoImage(self.img_grafica)
         self.btn_graficar = tk.Button(self.frame_menu, image = self.photo_grafica, bg="black", fg = "white", font = ("Arial" , 15), relief="flat", command = self.graficar_lista_de_canciones, bd=0, highlightthickness=0)
